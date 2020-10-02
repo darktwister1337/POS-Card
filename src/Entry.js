@@ -27,9 +27,9 @@ class Entry extends React.Component {
     render () {
 
         return (
-            <Epic activeStory={this.state.activeStory} tabbar={   // https://vkcom.github.io/vkui-styleguide/#epic
-                <Tabbar>                                          // https://vkcom.github.io/vkui-styleguide/#tabbar
-                    <TabbarItem                                   // https://vkcom.github.io/vkui-styleguide/#tabbaritem
+            <Epic activeStory={this.state.activeStory} tabbar={
+                <Tabbar>
+                    <TabbarItem
                         onClick={this.onStoryChange}
                         selected={this.state.activeStory === 'feed'}
                         data-story="feed"
@@ -51,9 +51,9 @@ class Entry extends React.Component {
             }>
 
 
-                <View id="feed" activePanel="feed">          // https://vkcom.github.io/vkui-styleguide/#view
-                    <Panel id="feed">                        // https://vkcom.github.io/vkui-styleguide/#panel
-                        <PanelHeader>Новости</PanelHeader>   // https://vkcom.github.io/vkui-styleguide/#panelheader
+                <View id="feed" activePanel="feed">
+                    <Panel id="feed">
+                        <PanelHeader>Новости</PanelHeader>
 
                     </Panel>
                 </View>
@@ -66,7 +66,7 @@ class Entry extends React.Component {
 
                 <View id="profile" activePanel="profile">
                     <Panel id="profile">
-                        <PanelHeader>Профиль</PanelHeader>
+                        <ProfilePage></ProfilePage>
                     </Panel>
                 </View>
             </Epic>

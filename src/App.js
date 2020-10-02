@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
-import View from '@vkontakte/vkui/dist/components/View/View';
+import Entry from './Entry';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
-
-import Home from './panels/Home';
-import Start from './panels/Persik';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
@@ -20,6 +17,8 @@ const App = () => {
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
 		});
+
+
 		async function fetchData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
 			setUser(user);
@@ -32,13 +31,16 @@ const App = () => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
 
+
+
+
 	return (
-		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
-			<Start id='persik' go={go} />
-		</View>
+			<Entry></Entry>
 	);
 }
+
+
+
 
 export default App;
 
