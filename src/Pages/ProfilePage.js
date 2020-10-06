@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import {Separator, Cell, Avatar, Button, PanelHeader, View, Placeholder, Header, SimpleCell, Group, Panel, PanelHeaderBack } from "@vkontakte/vkui";
+import {
+    Separator,
+    Cell,
+    Avatar,
+    Button,
+    PanelHeader,
+    View,
+    Placeholder,
+    Header,
+    SimpleCell,
+    Group,
+    Panel,
+    PanelHeaderBack,
+    Title
+} from "@vkontakte/vkui";
 import Icon28NotificationOutline from '@vkontakte/icons/dist/28/notifications';
 
 
@@ -11,6 +25,7 @@ class Profile extends React.Component {
         this.state = {
             activePanel: 'profileContent',
         };
+
     }
 
 
@@ -19,9 +34,10 @@ class Profile extends React.Component {
     render () {
 
         return(
+
             <View activePanel={this.state.activePanel}>
                 <Panel id="profileContent">
-                    <PanelHeader separator={true} style={{}} >Профиль</PanelHeader>
+                    <PanelHeader separator={true} style={{}} ><Title level="2" weight="bold">Профиль</Title></PanelHeader>
                     <Group title="User Data Fetched with VK Bridge">
                         <SimpleCell before={<Avatar size={48} src="https://sun3-12.userapi.com/c840336/v840336172/2ff95/aQLUJXryO2s.jpg" />} description="{your email}">Костик Миронов</SimpleCell>
                     </Group>
@@ -44,7 +60,7 @@ class Profile extends React.Component {
                     </Placeholder>
                 </Panel>
                 <Panel id="empty">
-                    <PanelHeader left={<PanelHeaderBack  onClick={() => this.setState({ activePanel: 'profileContent' })}/>}>
+                    <PanelHeader left={<PanelHeaderBack  onClick={this.props.onBackClick}/>}>
                         Пуфто?
                     </PanelHeader>
                     <Placeholder>
