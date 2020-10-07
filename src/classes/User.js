@@ -6,5 +6,11 @@ class User {
         this.email = data["email"];
         this.tarif = data["tarif"]; // код тарифа
         this.status = data["status"]; // статус пользователя, студент urfu или член pos (urfu - 49р, pos - 0р)
+        this.favorites = data["favorites"]; // id избранных партнеров (массив)
+    }
+
+    addFavorites(id) {
+        this.favorites.push(id);
+        // TODO добавить в БД нового избранного. Будет вызвана функция из бд
     }
 }
