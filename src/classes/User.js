@@ -7,6 +7,7 @@ class User {
         this.tarif = data["tarif"]; // код тарифа
         this.status = data["status"]; // статус пользователя, студент urfu или член pos (urfu - 49р, pos - 0р)
         this.favorites = data["favorites"]; // id избранных партнеров (массив)
+        this.auth = false; // пользователь авторизован/не авторизован
     }
 
     addFavorites(id) {

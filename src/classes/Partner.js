@@ -8,6 +8,7 @@ class Partner {
         this.description = data["description"]; // описание предложения
         this.addresses = data["addresses"]; // адреса компании текст
         this.logo = data["logo"]; // ссылка на логотип //TODO прописать адрес и в конец вставить data["logo"]
+        this.category = data["category"];
         Partner.listOfPartners.push(this);
     }
 }
