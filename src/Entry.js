@@ -67,8 +67,7 @@ class Entry extends React.Component {
 
                         <View id="feed" activePanel="feed">
                             <Panel id="feed">
-                                <PanelHeader><Title level="2" weight="bold">Новости</Title></PanelHeader>
-
+                                <NewsPage></NewsPage>
                             </Panel>
                         </View>
 
