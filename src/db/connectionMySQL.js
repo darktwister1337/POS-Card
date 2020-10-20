@@ -16,7 +16,7 @@ const news = [];
 const users = [];
 
 
-async function getPartners(connect) {
+async function getUsers(connect) {
 
     let result = [];
     await connect
@@ -40,10 +40,10 @@ async function getNews(connect) {
     return result;
 }
 
-async function getUsers(connect) {
+async function getPartners(connection) {
 
     let result = [];
-    await connect
+    await connection
     .query('SELECT `id`, `title` AS `name`, `discount` AS `sale`, `discount_full` AS `description`, `addresses`, `coverUri` AS `logo` FROM `card_partners`')
     .then((x) => {
         x[0].forEach((el) => result.push(new Partner(el)));
@@ -56,3 +56,9 @@ async function getUsers(connect) {
 console.log(getPartners(connection));
 
 connection.end();
+
+export function getAllPartners(connection){
+    getPartners(connection);
+}
+
+export default connection;

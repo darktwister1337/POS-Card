@@ -7,21 +7,22 @@ import Icon28UsersOutline from "@vkontakte/icons/dist/28/users_outline";
 import Icon24Done from "@vkontakte/icons/dist/24/done";
 import Icon28SettingsOutline from "@vkontakte/icons/dist/28/settings_outline";
 import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
+import Partners from '../classes/Partner';
 
 
 class PartnersPage extends React.Component {
 
+
     constructor (props) {
         super(props);
-
         this.state = {
             activePanel: 'panel1',
             contextOpened: false,
             mode: 'cafes',
             activeTab1: 'everything',
         };
-
         this.select = this.select.bind(this);
+
     }
 
     select(e) {
