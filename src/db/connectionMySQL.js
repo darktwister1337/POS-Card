@@ -23,7 +23,7 @@ export default function DataGetter() {
         });
         console.log(result);
         return result;
-    }
+    };
 
     this.getNews = async function() {
 
@@ -35,7 +35,7 @@ export default function DataGetter() {
         });
         console.log(result);
         return result;
-    }
+    };
 
     this.getUsers = async function() {
 
@@ -47,7 +47,7 @@ export default function DataGetter() {
         });
         console.log(result);
         return result;
-    }
+    };
 
     this.end = function () {
         connection.end();
