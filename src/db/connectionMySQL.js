@@ -1,7 +1,9 @@
-function DataGetter() {
-    const Partner = require('./classes/Partner');
-    const News = require('./classes/News');
-    const User = require('./classes/User');
+import Partner from "./classes/Partner.js";
+import News from "./classes/News.js";
+import User from "./classes/User.js";
+
+
+export default function DataGetter() {
     const mysql = require('mysql2');
 
     const connection = mysql.createConnection({
