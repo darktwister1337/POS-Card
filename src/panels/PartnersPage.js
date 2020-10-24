@@ -38,6 +38,8 @@ class PartnersPage extends React.Component {
             contextOpened: false,
             mode: 'cafes',
             activeTab1: 'everything',
+            list: [],
+            error: null
         };
 
         this.select = this.select.bind(this);
@@ -47,9 +49,24 @@ class PartnersPage extends React.Component {
         const mode = e.currentTarget.dataset.mode;
         this.setState({mode, contextOpened: false});
     }
+    buildList = (data) => {
+        console.log(data, null, '/t');
+        this.setState({list: data});
+    }
+
+    componentDidMount(){
+        let url = 'http://localhost:3000';
+        fetch(url)
+            .then(response => response.json())
+            .then(this.buildList)
+            .catch(error => {
+                this.setState({error});
+            })
+    }
 
     render() {
         return (
+
             <View activePanel={this.state.activePanel}>
                 <Panel id="panel1">
                     <PanelHeader separator={false}>
@@ -106,9 +123,16 @@ class PartnersPage extends React.Component {
                         </List>
                     </PanelHeaderContext>
                     <List>
-                        <Cell before={<Avatar/>} description="Кино">ivi</Cell>
-                        <Cell before={<Avatar/>} description="Музыкант">Bright Emotions</Cell>
-                        <Cell before={<Avatar/>} description="Издательский дом">Sokol Coffee</Cell>
+                            {
+                                this.state.list.length === 0 &&
+                                <li>А дата все, ушла :(</li>
+                            }
+                            { this.state.list.length > 0 &&
+                            this.state.list.map( (item) => (
+                                <Cell before={<Avatar src={item.coverUri}/>} description={item.discount}>{item.title} </Cell>
+                            ))
+                            }
+
                     </List>
                 </Panel>
 
