@@ -55,7 +55,7 @@ class PartnersPage extends React.Component {
     }
 
     componentDidMount(){
-        let url = 'http://localhost:3000';
+        let url = 'http://35.228.73.97:3000/api/partners';
         fetch(url)
             .then(response => response.json())
             .then(this.buildList)
